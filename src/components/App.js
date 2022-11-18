@@ -6,10 +6,14 @@ import CreateTextArea from "./CreateTextArea";
 
 function App() {
 
-    function addNote(note) {
+    const [notes, setNotes] = useState([]);
 
+    function addNote(newNote) {
+        setNotes(prevNotes => {
+        return [...prevNotes, newNote];
+        });
     }
-
+    
     return (
         <div>
             <Header />

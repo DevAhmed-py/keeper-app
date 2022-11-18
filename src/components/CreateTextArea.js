@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 
 function CreateTextArea(props) {
-
     const [note, setNote] = useState({
         title: " ",
         content: " "
     });
 
     function handleChange(event) {
-
         const {name, value} = event.target
 
         setNote(prevNote => {
@@ -20,9 +18,14 @@ function CreateTextArea(props) {
     }
 
     function submitNote(event) {
-        props.addNote(note)
+        props.onAdd(note);
+        setNote({
+            title: "",
+            content: ""
+          });
+
         event.preventDefault()
-    }
+        }
 
   return (
     <div>
